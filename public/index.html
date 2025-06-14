@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTF RIP Pro</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <img src="img/logo.png" alt="DTF RIP Pro">
+        <h1>DTF RIP Pro</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#" class="active" data-view="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="#" data-view="jobs"><i class="fas fa-tasks"></i> Jobs</a></li>
+          <li><a href="#" data-view="printers"><i class="fas fa-print"></i> Printers</a></li>
+          <li><a href="#" data-view="profiles"><i class="fas fa-palette"></i> Color Profiles</a></li>
+          <li><a href="#" data-view="settings"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+      </nav>
+      <div class="user-controls">
+        <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        <button id="help-button"><i class="fas fa-question-circle"></i></button>
+      </div>
+    </header>
+
+    <main class="app-content">
+      <!-- Dashboard View -->
+      <section id="dashboard-view" class="view active">
+        <div class="dashboard-header">
+          <h2>Dashboard</h2>
+          <div class="actions">
+            <button id="new-job-btn" class="btn primary"><i class="fas fa-plus"></i> New Job</button>
+          </div>
+        </div>
+        
+        <div class="dashboard-grid">
+          <div class="dashboard-card status-card">
+            <h3>System Status</h3>
+            <div class="status-indicators">
+              <div class="status-item">
+                <span class="label">RIP Engine:</span>
+                <span class="status online"><i class="fas fa-circle"></i> Online</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Job Queue:</span>
+                <span class="status online"><i class="fas fa-circle"></i> Ready</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Printers:</span>
+                <span class="status warning"><i class="fas fa-circle"></i> 1/2 Online</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-card recent-jobs">
+            <h3>Recent Jobs</h3>
+            <div class="job-list" id="recent-jobs-list">
+              <div class="job-item">
+                <div class="job-preview">
+                  <img src="img/sample-job.png" alt="Job Preview">
+                </div>
+                <div class="job-details">
+                  <h4>Company Logo</h4>
+                  <div class="job-meta">
+                    <span class="status processed"><i class="fas fa-check-circle"></i> Processed</span>
+                    <span class="time">10 minutes ago</span>
+                  </div>
+                </div>
+                <div class="job-actions">
+                  <button class="btn small"><i class="fas fa-print"></i></button>
+                  <button class="btn small"><i class="fas fa-edit"></i></button>
+                </div>
+              </div>
+              <div class="job-item">
+                <div class="job-preview">
+                  <img src="img/sample-job2.png" alt="Job Preview">
+                </div>
+                <div class="job-details">
+                  <h4>T-Shirt Design</h4>
+                  <div class="job-meta">
+                    <span class="status printing"><i class="fas fa-spinner fa-spin"></i> Printing</span>
+                    <span class="time">15 minutes ago</span>
+                  </div>
+                </div>
+                <div class="job-actions">
+                  <button class="btn small" disabled><i class="fas fa-print"></i></button>
+                  <button class="btn small" disabled><i class="fas fa-edit"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dashboard-card printer-status">
+            <h3>Printer Status</h3>
+            <div class="printer-list" id="printer-status-list">
+              <div class="printer-item">
+                <div class="printer-info">
+                  <h4>DTF Printer 1</h4>
+                  <span class="status online"><i class="fas fa-circle"></i> Online</span>
+                </div>
+                <div class="ink-levels">
+                  <div class="ink-level">
+                    <span class="color c"></span>
+                    <div class="level-bar">
+                      <div class="level-fill" style="width: 80%"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                  </div>
+                  <div class="ink-level">
+                    <span class="color m"></span>
+                    <div class="level-bar">
+                      <div class="level-fill" style="width: 75%"></div>
+                    </div>
+                    <span class="percentage">75%</span>
+                  </div>
+                  <div class="ink-level">
+                    <span class="color y"></span>
+                    <div class="level-bar">
+                      <div class="level-fill" style="width: 90%"></div>
+                    </div>
+                    <span class="percentage">90%</span>
+                  </div>
+                  <div class="ink-level">
+                    <span class="color k"></span>
+                    <div class="level-bar">
+                      <div class="level-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="percentage">85%</span>
+                  </div>
+                  <div class="ink-level">
+                    <span class="color w"></span>
+                    <div class="level-bar">
+                      <div class="level-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="percentage">60%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="printer-item">
+                <div class="printer-info">
+                  <h4>DTF Printer 2</h4>
+                  <span class="status offline"><i class="fas fa-circle"></i> Offline</span>
+                </div>
+                <div class="printer-actions">
+                  <button class="btn small"><i class="fas fa-sync-alt"></i> Reconnect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Jobs View -->
+      <section id="jobs-view" class="view">
+        <div class="view-header">
+          <h2>Job Management</h2>
+          <div class="actions">
+            <button id="jobs-new-btn" class="btn primary"><i class="fas fa-plus"></i> New Job</button>
+          </div>
+        </div>
+        
+        <div class="jobs-filters">
+          <div class="search-box">
+            <input type="text" placeholder="Search jobs...">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="filter-options">
+            <select id="status-filter">
+              <option value="all">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="processed">Processed</option>
+              <option value="printing">Printing</option>
+              <option value="printed">Printed</option>
+              <option value="error">Error</option>
+            </select>
+            <select id="date-filter">
+              <option value="all">All Dates</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="jobs-list" id="jobs-list">
+          <!-- Jobs will be populated here -->
+        </div>
+        
+        <div class="pagination">
+          <button class="btn small"><i class="fas fa-chevron-left"></i></button>
+          <span>Page 1 of 1</span>
+          <button class="btn small"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <!-- Printers View -->
+      <section id="printers-view" class="view">
+        <div class="view-header">
+          <h2>Printer Management</h2>
+          <div class="actions">
+            <button id="add-printer-btn" class="btn primary"><i class="fas fa-plus"></i> Add Printer</button>
+          </div>
+        </div>
+        
+        <div class="printers-grid" id="printers-grid">
+          <!-- Printers will be populated here -->
+        </div>
+      </section>
+
+      <!-- Color Profiles View -->
+      <section id="profiles-view" class="view">
+        <div class="view-header">
+          <h2>Color Profile Management</h2>
+          <div class="actions">
+            <button id="add-profile-btn" class="btn primary"><i class="fas fa-plus"></i> Add Profile</button>
+            <button id="import-icc-btn" class="btn"><i class="fas fa-file-import"></i> Import ICC</button>
+          </div>
+        </div>
+        
+        <div class="profiles-grid" id="profiles-grid">
+          <!-- Color profiles will be populated here -->
+        </div>
+      </section>
+
+      <!-- Settings View -->
+      <section id="settings-view" class="view">
+        <div class="view-header">
+          <h2>Settings</h2>
+          <div class="actions">
+            <button id="save-settings-btn" class="btn primary"><i class="fas fa-save"></i> Save Changes</button>
+          </div>
+        </div>
+        
+        <div class="settings-container">
+          <div class="settings-sidebar">
+            <ul>
+              <li><a href="#general-settings" class="active">General</a></li>
+              <li><a href="#rip-settings">RIP Engine</a></li>
+              <li><a href="#printer-settings">Printer Defaults</a></li>
+              <li><a href="#color-settings">Color Management</a></li>
+              <li><a href="#backup-settings">Backup & Restore</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+          
+          <div class="settings-content">
+            <div id="general-settings" class="settings-panel active">
+              <h3>General Settings</h3>
+              
+              <div class="settings-group">
+                <h4>Application</h4>
+                <div class="setting-item">
+                  <label for="app-theme">Theme</label>
+                  <select id="app-theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="system">System Default</option>
+                  </select>
+                </div>
+                <div class="setting-item">
+                  <label for="language">Language</label>
+                  <select id="language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="settings-group">
+                <h4>Job Management</h4>
+                <div class="setting-item checkbox">
+                  <input type="checkbox" id="auto-process" checked>
+                  <label for="auto-process">Automatically process new jobs</label>
+                </div>
+                <div class="setting-item checkbox">
+                  <input type="checkbox" id="auto-preview">
+                  <label for="auto-preview">Generate previews for all jobs</label>
+                </div>
+                <div class="setting-item">
+                  <label for="job-retention">Job Retention</label>
+                  <select id="job-retention">
+                    <option value="7">7 days</option>
+                    <option value="14">14 days</option>
+                    <option value="30" selected>30 days</option>
+                    <option value="90">90 days</option>
+                    <option value="0">Forever</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div id="rip-settings" class="settings-panel">
+              <h3>RIP Engine Settings</h3>
+              
+              <div class="settings-group">
+                <h4>Processing</h4>
+                <div class="setting-item">
+                  <label for="default-resolution">Default Resolution (DPI)</label>
+                  <select id="default-resolution">
+                    <option value="600">600 DPI</option>
+                    <option value="720">720 DPI</option>
+                    <option value="1200">1200 DPI</option>
+                    <option value="1440" selected>1440 DPI</option>
+                  </select>
+                </div>
+                <div class="setting-item range">
+                  <label for="processing-threads">Processing Threads</label>
+                  <input type="range" id="processing-threads" min="1" max="8" value="4">
+                  <span class="range-value">4</span>
+                </div>
+              </div>
+              
+              <div class="settings-group">
+                <h4>White Layer Generation</h4>
+                <div class="setting-item range">
+                  <label for="white-density">Default White Density</label>
+                  <input type="range" id="white-density" min="0" max="100" value="100">
+                  <span class="range-value">100%</span>
+                </div>
+                <div class="setting-item range">
+                  <label for="white-expansion">White Underbase Expansion</label>
+                  <input type="range" id="white-expansion" min="0" max="10" value="2">
+                  <span class="range-value">2px</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Other settings panels would go here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="new-job-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create New Job</h3>
+          <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <form id="new-job-form">
+            <div class="form-group">
+              <label for="job-name">Job Name</label>
+              <input type="text" id="job-name" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Upload File</label>
+              <div class="file-upload-container">
+                <div class="file-upload-area" id="file-upload-area">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Drag & drop your file here or click to browse</p>
+                  <p class="file-types">Supported formats: JPG, PNG, PDF</p>
+                </div>
+                <input type="file" id="job-file" accept=".jpg,.jpeg,.png,.pdf" hidden>
+              </div>
+              <div class="upload-preview" id="upload-preview" style="display: none;">
+                <img id="preview-image" src="" alt="Preview">
+                <div class="file-info">
+                  <p id="file-name"></p>
+                  <p id="file-size"></p>
+                </div>
+                <button type="button" id="remove-file" class="btn small danger"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="job-printer">Printer</label>
+              <select id="job-printer" required>
+                <option value="">Select a printer</option>
+                <!-- Printers will be populated here -->
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="job-profile">Color Profile</label>
+              <select id="job-profile">
+                <option value="standard">Standard DTF</option>
+                <!-- Color profiles will be populated here -->
+              </select>
+            </div>
+            
+            <div class="form-group checkbox">
+              <input type="checkbox" id="job-auto-process" checked>
+              <label for="job-auto-process">Process immediately</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" id="cancel-job">Cancel</button>
+          <button type="button" class="btn primary" id="create-job">Create Job</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

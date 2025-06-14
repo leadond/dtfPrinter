@@ -1,0 +1,62 @@
+[
+  {
+    "id": "printer1",
+    "name": "DTF Printer 1",
+    "model": "Epson L1800",
+    "type": "DTF",
+    "status": "online",
+    "capabilities": {
+      "maxWidth": 329,
+      "maxHeight": 1200,
+      "resolution": 1440,
+      "colors": [
+        "C",
+        "M",
+        "Y",
+        "K",
+        "W"
+      ]
+    },
+    "connection": {
+      "type": "usb",
+      "port": "auto"
+    },
+    "inkLevels": {
+      "C": 80,
+      "M": 74,
+      "Y": 90,
+      "K": 85,
+      "W": 56
+    }
+  },
+  {
+    "id": "printer2",
+    "name": "DTF Printer 2",
+    "model": "Epson L805",
+    "type": "DTF",
+    "status": "online",
+    "capabilities": {
+      "maxWidth": 210,
+      "maxHeight": 1000,
+      "resolution": 1440,
+      "colors": [
+        "C",
+        "M",
+        "Y",
+        "K",
+        "W"
+      ]
+    },
+    "connection": {
+      "type": "network",
+      "address": "192.168.1.100"
+    },
+    "inkLevels": {
+      "C": 78,
+      "M": 73,
+      "Y": 85,
+      "K": 84,
+      "W": 60
+    }
+  }
+]

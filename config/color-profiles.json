@@ -1,0 +1,74 @@
+[
+  {
+    "id": "standard",
+    "name": "Standard DTF",
+    "description": "Standard color profile for DTF printing",
+    "type": "cmyk",
+    "settings": {
+      "blackPoint": 5,
+      "whitePoint": 95,
+      "saturation": 100,
+      "contrast": 100,
+      "brightness": 100,
+      "gamma": 2.2
+    }
+  },
+  {
+    "id": "vivid",
+    "name": "Vivid Colors",
+    "description": "Enhanced saturation for vibrant prints",
+    "type": "cmyk",
+    "settings": {
+      "blackPoint": 5,
+      "whitePoint": 95,
+      "saturation": 120,
+      "contrast": 110,
+      "brightness": 105,
+      "gamma": 2.2
+    }
+  },
+  {
+    "id": "muted",
+    "name": "Muted Colors",
+    "description": "Reduced saturation for subtle prints",
+    "type": "cmyk",
+    "settings": {
+      "blackPoint": 10,
+      "whitePoint": 90,
+      "saturation": 80,
+      "contrast": 90,
+      "brightness": 95,
+      "gamma": 2.0
+    }
+  },
+  {
+    "id": "cotton-light",
+    "name": "Light Cotton",
+    "description": "Optimized for light colored cotton garments",
+    "type": "cmyk",
+    "settings": {
+      "blackPoint": 5,
+      "whitePoint": 95,
+      "saturation": 110,
+      "contrast": 105,
+      "brightness": 100,
+      "gamma": 2.2,
+      "whiteUnderbase": "light"
+    }
+  },
+  {
+    "id": "cotton-dark",
+    "name": "Dark Cotton",
+    "description": "Optimized for dark colored cotton garments",
+    "type": "cmyk",
+    "settings": {
+      "blackPoint": 5,
+      "whitePoint": 95,
+      "saturation": 110,
+      "contrast": 110,
+      "brightness": 105,
+      "gamma": 2.2,
+      "whiteUnderbase": "heavy"
+    }
+  }
+]
